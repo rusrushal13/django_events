@@ -279,3 +279,4 @@ django_events/media/
 .env
 .envs/*
 !.envs/.local/
+.envrc

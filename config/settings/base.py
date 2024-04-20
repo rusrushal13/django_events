@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "django_events.users",
+    "django_events.event",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -212,7 +213,7 @@ FIXTURE_DIRS = (str(APPS_DIR / "fixtures"),)
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
 SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
 X_FRAME_OPTIONS = "DENY"
 
@@ -339,3 +340,7 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+AIRTABLE_API_KEY = env("AIRTABLE_API_KEY")
+AIRTABLE_BASE_ID = env("AIRTABLE_BASE_ID")
+AIRTABLE_TABLE_ID = env("AIRTABLE_TABLE_ID")

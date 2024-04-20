@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <h1>Upcoming Events</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <div id="message-container"></div>
+    <tbody>
+      {% for value in event_data %}
+        <tr>
+          <td>{{ value.event.title }}</td>
+          <td>{{ value.event.date }}</td>
+          <td>{{ value.event.description }}</td>
+          <td>
+            {% if value.is_subscribed and user.is_authenticated %}
+              <button class="unsubscribe-btn btn btn-danger"
+                      data-event-id="{{ value.event.pk }}">Unsubscribe</button>
+            {% elif user.is_authenticated %}
+              <button class="subscribe-btn btn btn-primary"
+                      data-event-id="{{ value.event.pk }}">Subscribe</button>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
